@@ -63,16 +63,7 @@ public class DayFour {
     }
 
     private static boolean documentHasRequiredElements(final String document) {
-
-        boolean containsAll = true;
-        for (String keyword : DayFour.expectedElements) {
-            if (!document.contains(keyword)) {
-                containsAll = false;
-                break;
-            }
-        }
-
-        return containsAll;
+        return expectedElements.stream().allMatch(document::contains);
     }
 
     private static ArrayList<HashMap<String, String>> getPassportsWithAllElementsAsMaps(final List<String> passports) {
