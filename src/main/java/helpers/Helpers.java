@@ -2,6 +2,10 @@ package helpers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,5 +35,10 @@ public class Helpers {
         s.close();
 
         return list;
+    }
+
+    public static String getInputAsString(final String day) throws IOException {
+
+        return Files.readString(Paths.get(String.format("src/main/resources/%s/input", day)));
     }
 }
