@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class Helpers {
@@ -29,6 +30,19 @@ public class Helpers {
         final String path = String.format("src/main/resources/%s/input", day);
         final Scanner s = new Scanner(new File(path));
         final ArrayList<String> list = new ArrayList<String>();
+        while (s.hasNextLine()){
+            list.add(s.nextLine());
+        }
+        s.close();
+
+        return list;
+    }
+
+    public static LinkedList<String> getInputAsLinkedStrings(final String day) throws FileNotFoundException {
+
+        final String path = String.format("src/main/resources/%s/input", day);
+        final Scanner s = new Scanner(new File(path));
+        final LinkedList<String> list = new LinkedList<String>();
         while (s.hasNextLine()){
             list.add(s.nextLine());
         }
