@@ -25,11 +25,24 @@ public class Helpers {
         return list;
     }
 
+    public static ArrayList<Long> getInputAsLongs(final String day) throws FileNotFoundException {
+
+        final String path = String.format("src/main/resources/%s/input", day);
+        final Scanner s = new Scanner(new File(path));
+        final ArrayList<Long> list = new ArrayList<Long>();
+        while (s.hasNextLine()){
+            list.add(Long.parseLong(s.nextLine()));
+        }
+        s.close();
+
+        return list;
+    }
+
     public static ArrayList<String> getInputAsStrings(final String day) throws FileNotFoundException {
 
         final String path = String.format("src/main/resources/%s/input", day);
         final Scanner s = new Scanner(new File(path));
-        final ArrayList<String> list = new ArrayList<String>();
+        final ArrayList<String> list = new ArrayList<>();
         while (s.hasNextLine()){
             list.add(s.nextLine());
         }
