@@ -10,8 +10,15 @@ public class DayNine {
 
     public static void main(String[] args) throws FileNotFoundException {
 
+        long startTimePart1 = System.currentTimeMillis();
         System.out.println("Part 1: " + part1(Helpers.getInputAsLongs("day9")));
+        long endTimePart1 = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTimePart1 - startTimePart1) + "ms");
+
+        long startTimePart2 = System.currentTimeMillis();
         System.out.println("Part 2: " + part2(Helpers.getInputAsLongs("day9")));
+        long endTimePart2 = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTimePart2 - startTimePart2) + "ms");
     }
 
     private static Long part1(final ArrayList<Long> input) {
@@ -46,6 +53,7 @@ public class DayNine {
             for (Long j: subList) {
                 if ((sum + j) == targetNum) {
                     ArrayList<Long> range = new ArrayList<>(input.subList(input.indexOf(i), input.indexOf(j) + 1));
+                    Long endTime = System.currentTimeMillis();
                     return (Collections.min(range) + Collections.max(range));
                 }
                 sum += j;
