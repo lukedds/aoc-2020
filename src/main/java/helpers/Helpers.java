@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -19,6 +20,25 @@ public class Helpers {
         final ArrayList<Integer> list = new ArrayList<Integer>();
         while (s.hasNextLine()){
             list.add(Integer.parseInt(s.nextLine()));
+        }
+        s.close();
+
+        return list;
+    }
+
+    public static ArrayList<ArrayList<Character>> getInputAsCharArrayLists(final String day) throws FileNotFoundException {
+
+        final String path = String.format("src/main/resources/%s/input", day);
+        final Scanner s = new Scanner(new File(path));
+        final ArrayList<ArrayList<Character>> list = new ArrayList<>();
+        while (s.hasNextLine()){
+            final ArrayList<Character> charList = new ArrayList<>();
+
+            for (char c : s.nextLine().toCharArray()) {
+                charList.add(c);
+            }
+
+            list.add(charList);
         }
         s.close();
 
