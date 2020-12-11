@@ -13,8 +13,16 @@ public class DayTen {
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<Integer> day10 = Helpers.getInputAsIntegers("day10");
         Collections.sort(day10);
+
+        long startTimePart1 = System.currentTimeMillis();
         part1(day10);
+        long endTimePart1 = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTimePart1 - startTimePart1) + "ms");
+
+        long startTimePart2 = System.currentTimeMillis();
         part2(day10);
+        long endTimePart2 = System.currentTimeMillis();
+        System.out.println("Execution time: " + (endTimePart2 - startTimePart2) + "ms");
     }
 
     public static void part1(ArrayList<Integer> input) {
